@@ -29,9 +29,19 @@
   Call your class Employee and receive all the data in the constructor in the order listed above.
 */
 
-//Code Here
+class Employee {
+  constructor(firstName, lastName, email, age) {
+    this.first_name = firstName;
+    this.last_name = lastName;
+    this.email = email;
+    this.age = age;
+  }
+  makeWidget() {
+    return this.first_name + " " + this.last_name + " Widget";
+  }
+}
 
-
+// let tony = new Employee("Tony", "Truong", "email.com", 25);
 
 ////////// PROBLEM 2 //////////
 
@@ -49,9 +59,20 @@
   Call your new class Manager
 */
 
-//Code Here
+class Manager extends Employee {
+  constructor(firstName, lastName, email, age, reports = []) {
+    super(firstName, lastName, email, age);
+    this.reports = reports;
+  }
+  hire(employee) {
+    this.reports.push(employee);
+  }
+  fire(index) {
+    this.reports.splice(index, 1);
+  }
+}
 
-
+// let tonyManager = new Manager("tony", "truong", "email.com", 25);
 
 ////////// PROBLEM 3 //////////
 
@@ -75,9 +96,31 @@
   Call your new class ProgressiveManager
 */
 
-//Code Here
+class ProgressiveManager extends Manager {
+  constructor(
+    firstName,
+    lastName,
+    email,
+    age,
+    reports = [],
+    title = "Not a manager",
+    bonus = 0
+  ) {
+    super(firstName, lastName, email, age, (reports = []));
+    this.title = title;
+    this.bonus = bonus;
+  }
 
+  hire(employee) {
+    super.hire(employee);
+    // doSomething()
+  }
 
+  fire(index) {
+    super.fire(index);
+    // doSomething()
+  }
+}
 
 ////////// PROBLEM 4 - Black Diamond //////////
 
@@ -102,6 +145,9 @@
         - It should set decrease wear_and_tear_count by 10, and set needs_reboot to false
 */
 
-//Code Here
-
-
+// class Machine {
+//   constructor(widgets_made_count, wear_and_tear_count, needs_reboot)
+//   this.widgets_made_count = 0;
+//   this.wear_and_tear_count = 0;
+//   this.needs_reboot = false;
+// }
